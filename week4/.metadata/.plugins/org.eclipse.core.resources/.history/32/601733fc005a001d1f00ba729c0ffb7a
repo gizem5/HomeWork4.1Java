@@ -1,0 +1,23 @@
+package kodloma.io.devs.business.concretes;
+
+import java.util.List;
+
+import kodloma.io.devs.business.abstracts.IProgrammingLanguagesService;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public class ProgrammingLanguagesManager implements IProgrammingLanguagesService{
+
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
+
+		
+	}
+
+

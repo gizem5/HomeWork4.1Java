@@ -1,0 +1,47 @@
+package kodloma.io.devs.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import kodloma.io.devs.business.abstracts.IProgrammingLanguagesService;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+@RestController
+@RequestMapping("/api/programmingLanguages")
+public class ProgrammingLanguagesController {
+	private IProgrammingLanguagesService _programmingLanguagesService;
+
+	public ProgrammingLanguagesController(IProgrammingLanguagesService programmingLanguagesService) {
+		_programmingLanguagesService = programmingLanguagesService;
+	}
+	
+	@GetMapping("/getAll")
+	public List<ProgrammingLanguages> getAl1(){
+		return _programmingLanguagesService.getAll();
+	}
+		
+	@GetMapping("/add")
+	public void add(ProgrammingLanguages language)throws Exception{
+		_programmingLanguagesService.add(language);
+	}
+	
+	@GetMapping("/delete")
+	public void delete(ProgrammingLanguages language) {
+		 _programmingLanguagesService.delete(language);
+	}
+	
+	@GetMapping("/update")
+	public void update(int id, String newName) throws Exception{
+	     _programmingLanguagesService.update(id, newName);
+	}
+		
+	@GetMapping("/getById/{id}")
+	public void getById(int id) {
+		_programmingLanguagesService.getById(id);
+	}
+}
+	
+

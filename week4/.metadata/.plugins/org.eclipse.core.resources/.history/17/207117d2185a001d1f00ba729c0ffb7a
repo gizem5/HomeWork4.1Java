@@ -1,0 +1,68 @@
+package kodloma.io.devs.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import kodloma.io.devs.business.abstracts.IProgrammingLanguagesService;
+import kodloma.io.devs.dataAccess.abstracts.IProgrammingLanguagesRepository;
+import kodloma.io.devs.dataAccess.concretes.InMemoryProgrammingLanguagesRepository;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public class ProgrammingLanguagesManager implements IProgrammingLanguagesService{
+	
+	private IProgrammingLanguagesRepository _programmingLanguagesRepository;
+	private InMemoryProgrammingLanguagesRepository _inMemoryProgrammingLanguagesRepository;
+	private List<ProgrammingLanguages> _programmingLanguages;
+	
+	@Autowired
+	public ProgrammingLanguagesManager(IProgrammingLanguagesRepository programmingLanguagesRepository , InMemoryProgrammingLanguagesRepository inMemoryProgrammingLanguagesRepository , List<ProgrammingLanguages> programmingLanguages ) {
+		_programmingLanguagesRepository = programmingLanguagesRepository;
+		_inMemoryProgrammingLanguagesRepository = inMemoryProgrammingLanguagesRepository;
+		_programmingLanguages = programmingLanguages;
+	}
+
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+		
+		return _programmingLanguagesRepository.getAll();
+	}
+
+	@Override
+	public void add(ProgrammingLanguages language) throws Exception {
+		for(ProgrammingLanguages languages : _inMemoryProgrammingLanguagesRepository.getAll()) {
+			if(languages.getName().equals(language.getName())) {
+				System.out.println("İsim tekrar edemez. Lütfen farklı bir isim giriniz!");
+			}if(languages.getName().isEmpty()) {
+				System.out.println("İsim boş bırakılamaz. Lütfen bir isim giriniz!");
+			}
+			else {
+				_programmingLanguagesRepository.add(language);
+			}
+			
+		}
+		
+	}
+
+	@Override
+	public void delete(ProgrammingLanguages language) {
+		_programmingLanguagesRepository.delete(language);
+		
+	}
+
+	@Override
+	public void update(int id, String newName) throws Exception {
+		_programmingLanguagesRepository.update(id, newName);
+		
+	}
+
+	@Override
+	public ProgrammingLanguages getById(int id) {
+		_programmingLanguagesRepository.getById(id);
+		
+		return null;
+	}
+	
+}
+
+

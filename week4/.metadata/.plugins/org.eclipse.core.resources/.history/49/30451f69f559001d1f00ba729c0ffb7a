@@ -1,0 +1,49 @@
+package kodloma.io.devs.dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import kodloma.io.devs.dataAccess.abstracts.IProgrammingLanguagesRepository;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public class InMemoryProgrammingLanguagesRepository implements IProgrammingLanguagesRepository{
+
+	List<ProgrammingLanguages> languages;	
+	
+	public InMemoryProgrammingLanguagesRepository() {
+		languages = new ArrayList<ProgrammingLanguages>();
+		languages.add(null)
+	
+	}
+
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(ProgrammingLanguages language) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(int id, String newName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ProgrammingLanguages getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

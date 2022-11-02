@@ -1,0 +1,17 @@
+package kodloma.io.devs.business.concretes;
+
+import java.util.List;
+
+import kodloma.io.devs.business.abstracts.IProgrammingLanguagesService;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public class ProgrammingLanguagesManager implements IProgrammingLanguagesService{
+
+
+	
+	
+
+		
+	}
+
+

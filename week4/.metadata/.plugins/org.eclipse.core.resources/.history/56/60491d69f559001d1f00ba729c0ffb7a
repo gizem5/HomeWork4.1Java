@@ -1,0 +1,14 @@
+package kodloma.io.devs.dataAccess.abstracts;
+
+import java.util.List;
+
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public interface IProgrammingLanguagesRepository {
+	List<ProgrammingLanguages> getAll();
+	void add(int id, ProgrammingLanguages language);
+	void delete(int id);
+	void update(int id, String newName);
+	ProgrammingLanguages getById(int id);
+
+}

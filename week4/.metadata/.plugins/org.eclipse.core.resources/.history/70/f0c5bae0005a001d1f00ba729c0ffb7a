@@ -1,0 +1,15 @@
+package kodloma.io.devs.business.abstracts;
+
+import java.util.List;
+
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+public interface IProgrammingLanguagesService {
+	
+	List<ProgrammingLanguages> getAll();
+	void add(ProgrammingLanguages language) throws Exception;
+	void delete(ProgrammingLanguages language);
+	void update(int id, String newName) throws Exception;
+	ProgrammingLanguage getById(int id);
+
+}

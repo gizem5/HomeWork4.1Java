@@ -1,0 +1,63 @@
+package kodloma.io.devs.dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import kodloma.io.devs.dataAccess.abstracts.IProgrammingLanguagesRepository;
+import kodloma.io.devs.entities.concretes.ProgrammingLanguages;
+
+@Repository
+public class InMemoryProgrammingLanguagesRepository implements IProgrammingLanguagesRepository{
+
+	
+	List<ProgrammingLanguages> languages;	
+	
+	public InMemoryProgrammingLanguagesRepository() {
+		languages = new ArrayList<ProgrammingLanguages>();
+		languages.add(new ProgrammingLanguages(1, "C#"));
+		languages.add(new ProgrammingLanguages(2, "Java"));
+		languages.add(new ProgrammingLanguages(3, "Python"));
+		languages.add(new ProgrammingLanguages(4, "C++"));
+		languages.add(new ProgrammingLanguages(5, "JavaScript"));
+	}
+	@Override
+	public List<ProgrammingLanguages> getAll() {
+		
+		return languages;
+	}
+
+	@Override
+	public void add(ProgrammingLanguages language) {
+		languages.add(language);	
+	}
+
+	@Override
+	public void delete(ProgrammingLanguages language) {
+		languages.remove(languages.indexOf(language));
+		
+	}
+
+	@Override
+	public void update(int id, String newName) {
+
+		for(ProgrammingLanguages language : languages) {
+			if(language.getId() == id) {
+				language.setName(newName);
+			}
+		}	
+	}
+
+	@Override
+	public ProgrammingLanguages getById(int id) {
+		
+		for(ProgrammingLanguages language : languages) {
+			if(language.getId() == id) {
+				return language;
+			}
+		}
+		return null;
+		
+	}
+}
